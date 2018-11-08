@@ -1,32 +1,33 @@
-ansibleÍ¨¹ıplaybookÅúÁ¿°²×°jdk+tomcat+redis+mysql
+ansibleé€šè¿‡playbookæ‰¹é‡å®‰è£…jdk+tomcat+redis+mysql
 
-Ä¿Â¼ÈçÏÂ£ºÈí¼ş°üÌ«´óÎŞ·¨ÉÏ´«GitHub£¬Çë°´ÕÕÈí¼ş°æ±¾×ÔĞĞÏÂÔØ¡£
+ç›®å½•å¦‚ä¸‹ï¼šè½¯ä»¶åŒ…å¤ªå¤§æ— æ³•ä¸Šä¼ GitHubï¼Œè¯·æŒ‰ç…§è½¯ä»¶ç‰ˆæœ¬è‡ªè¡Œä¸‹è½½ã€‚
 
 ansible_playbooks
-©À©¤©¤ roles
-©¦ ©¸©¤©¤ webservers
-©¦     ©À©¤©¤ files
-©¦     ©¦ ©À©¤©¤ apache-tomcat-7.0.90.tar.gz
-©¦     ©¦ ©À©¤©¤ cmake-3.7.1.tar.gz
-©¦     ©¦ ©À©¤©¤ jdk-7u80-linux-x64.tar.gz
-©¦     ©¦ ©À©¤©¤ my.cnf
-©¦     ©¦ ©À©¤©¤ mysql-5.7.24
-©¦     ©¦ ©À©¤©¤ mysql-5.7.24.tar.gz
-©¦     ©¦ ©À©¤©¤ redis-5.0.0
-©¦     ©¦ ©¸©¤©¤ redis-5.0.0.tar.gz
-©¦     ©À©¤©¤ handlers
-©¦     ©¦ ©¸©¤©¤ mian.yml
-©¦     ©À©¤©¤ meta
-©¦     ©À©¤©¤ tasks
-©¦     ©¦ ©À©¤©¤ copy_mysql_cnf.yml
-©¦     ©¦ ©À©¤©¤ install_jdk.yml
-©¦     ©¦ ©À©¤©¤ install_mysql.yml
-©¦     ©¦ ©À©¤©¤ install_redis.yml
-©¦     ©¦ ©À©¤©¤ install_tomcat.yml
-©¦     ©¦ ©¸©¤©¤ main.yml
-©¦     ©À©¤©¤ templates
-©¦     ©¦ ©À©¤©¤ mysql_install.sh
-©¦     ©¦ ©¸©¤©¤ redis.conf.j2
-©¦     ©¸©¤©¤ vars
-©¦         ©¸©¤©¤ main.yml
-©¸©¤©¤ webserver.yml
+â”œâ”€â”€ roles
+â”‚ â””â”€â”€ webservers
+â”‚     â”œâ”€â”€ files
+â”‚     â”‚ â”œâ”€â”€ apache-tomcat-7.0.90.tar.gz
+â”‚     â”‚ â”œâ”€â”€ cmake-3.7.1.tar.gz
+â”‚     â”‚ â”œâ”€â”€ jdk-7u80-linux-x64.tar.gz
+â”‚     â”‚ â”œâ”€â”€ my.cnf
+â”‚     â”‚ â”œâ”€â”€ mysql-5.7.24
+â”‚     â”‚ â”œâ”€â”€ mysql-5.7.24.tar.gz
+â”‚     â”‚ â”œâ”€â”€ redis-5.0.0
+â”‚     â”‚ â””â”€â”€ redis-5.0.0.tar.gz
+â”‚     â”œâ”€â”€ handlers
+â”‚     â”‚ â””â”€â”€ mian.yml
+â”‚     â”œâ”€â”€ meta
+â”‚     â”œâ”€â”€ tasks
+â”‚     â”‚ â”œâ”€â”€ copy_mysql_cnf.yml
+â”‚     â”‚ â”œâ”€â”€ install_jdk.yml
+â”‚     â”‚ â”œâ”€â”€ install_mysql.yml
+â”‚     â”‚ â”œâ”€â”€ install_redis.yml
+â”‚     â”‚ â”œâ”€â”€ install_tomcat.yml
+â”‚     â”‚ â””â”€â”€ main.yml
+â”‚     â”œâ”€â”€ templates
+â”‚     â”‚ â”œâ”€â”€ mysql_install.sh
+â”‚     â”‚ â””â”€â”€ redis.conf.j2
+â”‚     â””â”€â”€ vars
+â”‚         â””â”€â”€ main.yml
+â””â”€â”€ webserver.yml
+
