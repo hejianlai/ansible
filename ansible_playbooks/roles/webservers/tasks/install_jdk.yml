@@ -1,0 +1,15 @@
+- name: copy jdk package
+  copy: src=jdk-{{jdk_version}}-linux-x64.tar.gz dest=/usr/local
+- name: tar jdk package
+  shell: chdir=/usr/local/ tar -xf jdk-7u80-linux-x64.tar.gz
+- name: soft link
+  file: src=/usr/local/jdk1.7.0_80 dest=/usr/local/java state=link
+- name: java_profile config
+  shell: /bin/echo {{ item }} >> /etc/profile;source /etc/profile
+  with_items:
+    - export JAVA_HOME=/usr/local/java
+    - export JRE_HOME=/usr/local/java/jre
+    - export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:\$JRE_HOME/lib:\$CLASSPATH
+    - export PATH=\$JAVA_HOME/bin:\$PATH
+- name: java -version
+  command: '/usr/local/java/bin/java -version'

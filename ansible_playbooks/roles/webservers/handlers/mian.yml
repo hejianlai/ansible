@@ -1,0 +1,4 @@
+- name: stop redis
+  shell: service redis stop
+- name: start redis
+  shell: service redis start

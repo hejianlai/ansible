@@ -1,0 +1,41 @@
+- name: Installredis base packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - gcc
+    - make
+- name: copy redis.tar.gz to remote server
+  copy: src=redis-{{ redis_version }}.tar.gz dest=/usr/local/
+- name: 解压redis
+  shell: chdir=/usr/local/ tar zxf redis-{{ redis_version }}.tar.gz
+- name: make install redis
+  shell: cd /usr/local/redis-{{ redis_version }} && make PREFIX=/usr/local/redis install
+- name: create redis init script
+  shell: cp /usr/local/redis-{{ redis_version }}/utils/redis_init_script /etc/init.d/redis 
+- name: 修改redis-server启动脚本参数路径
+  shell: sed -i 's/^EXEC.*/EXEC=\/usr\/local\/redis\/bin\/redis-server/g' /etc/init.d/redis
+- name: 替换redis启动脚本CLIEXEC参数
+  shell: sed -i 's/^CLIEXEC.*/CLIEXEC=\/usr\/local\/redis\/bin\/redis-cli/g' /etc/init.d/redis
+- name: 添加环境变量文件
+  shell: /bin/echo {{ item }} >> /etc/profile && source /etc/profile
+  with_items:
+    - export PATH=\$PATH:/usr/local/redis/bin
+- name: 创建redis配置文件路径
+  file: path=/etc/redis state=directory mode=755 owner=root group=root
+- name: copy redis配置文件到远程主机
+  template: src=redis.conf.j2 dest=/etc/redis/{{ port }}.conf
+  notify:
+     - stop redis
+     - start redis
+- name: start redis service
+  shell: service redis start
+#  #when: ansible_default_ipv4.address == "{{ slave_ip }}"
+#  - name: 替换master_ip
+#    shell: sed -i ‘/^# slaveof.*/a\slaveof {{ master_ip }} {{ port }}‘ /etc/redis/{{ port }}.conf
+#      when: ansible_default_ipv4.address == "{{ slave_ip }}"
+#        notify:
+#             - stop redis
+#                  - start redis
+#                  #- name: stop redis service
+#                  #  shell: service redis stop
+#                  #- name: reload redis service
+#                  #  shell: service redis start
