@@ -10,8 +10,8 @@ ansible_playbooks
 │     │ ├── cmake-3.7.1.tar.gz
 │     │ ├── jdk-7u80-linux-x64.tar.gz
 │     │ ├── my.cnf
-│     │ ├── mysql-5.7.24
-│     │ ├── mysql-5.7.24.tar.gz
+│     │ ├── mysql--5.7.24
+│     │ ├── mysql-boost-5.7.24.tar.gz
 │     │ ├── redis-5.0.0
 │     │ └── redis-5.0.0.tar.gz
 │     ├── handlers
