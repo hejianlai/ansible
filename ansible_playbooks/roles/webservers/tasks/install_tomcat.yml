@@ -1,6 +1,0 @@
-- name: copy tomcat package
-  copy: src=apache-tomcat-7.0.90.tar.gz dest=/usr/local
-- name: tar tomcat package
-  shell: chdir=/usr/local/ tar -xf apache-tomcat-7.0.90.tar.gz
-- name: soft link
-  file: src=/usr/local/apache-tomcat-7.0.90 dest=/usr/local/tomcat state=link

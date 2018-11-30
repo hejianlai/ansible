@@ -1,9 +1,0 @@
-jdk_version: 7u80
-port: 6379
-redis_version: 5.0.0
-slave_ip: 192.168.121.129
-master_ip: 192.168.121.128
-mysql_version: mysql-5.7.24
-cmake_version: cmake-3.7.1
-source_dir: /home/app/src/mysql
-install_dir: /usr/local/mysql

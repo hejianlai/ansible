@@ -1,6 +1,0 @@
----
-- include: install_jdk.yml
-- include: install_tomcat.yml
-- include: install_redis.yml
-- include: copy_mysql_cnf.yml
-- include: install_mysql.yml

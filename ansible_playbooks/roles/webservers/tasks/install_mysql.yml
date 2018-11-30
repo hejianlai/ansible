@@ -1,2 +1,0 @@
-- name: runing install script
-  shell: bash {{source_dir}}/mysql_install.sh
