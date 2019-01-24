@@ -1,0 +1,7 @@
+@echo off
+set BASE=%cd%
+set env=dev 
+
+cd \soft\PreventCopy
+start javaw -Xms100m -Xmx556m -server -jar -Dspring.profiles.active=prod PreventCopy.jar
+exit

@@ -1,0 +1,9 @@
+10.100.23.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.24.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.25.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.26.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.27.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.28.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.29.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.30.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore
+10.100.31.8  ansible_ssh_user="Administrator" ansible_ssh_pass="NPS#2018" ansible_ssh_port=5985 ansible_connection="winrm" ansible_winrm_server_cert_validation=ignore

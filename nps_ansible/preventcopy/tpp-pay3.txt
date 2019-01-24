@@ -1,0 +1,63 @@
+10.90.6.126 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.128 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.127 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.125 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.133 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.102 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.130 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.120 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.131 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.119 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.118 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.99 | SUCCESS | rc=0 >>
+12-30 17:39:30.306|INFO|c.p.w.c.c.FailRetryController:?|http-nio-8767-exec-7|uyFB6Vol|收到定时任务的失败重试请求, idList=[7E15B8D3BAE0F278E05311065A0A8328]
+12-30 17:39:30.333|DEBUG|druid.sql.Statement:?|http-nio-8767-exec-7|uyFB6Vol|{conn-10003} {executed in 10.242332 millis} SELECT ID, RETRY_DESC, BEAN_NAME, STATE, RETRY_TIMES , EXPIRE_TIME, SYSTEM_CODE, RETRY_CODE, SERVICE_ID, CREATE_TIME , LAST_MODIFY_TIME, ERROR_CODE, ERROR_MSG, RETRY_DATA, BUSINESS_ID FROM API_FAIL_RETRY WHERE ID IN ('7E15B8D3BAE0F278E05311065A0A8328')
+12-30 17:39:30.334|DEBUG|druid.sql.ResultSet:?|http-nio-8767-exec-7|uyFB6Vol|{conn-10003, pstmt-55207, rs-66412} Result: [7E15B8D3BAE0F278E05311065A0A8328, 扣款失败重试, npsPayFailRetryService, wait, 4, 2019-01-28 21:46:47.0, tpp, npsPayDeductRetry, tpp-pay, 2018-12-28 21:46:47.0, 2018-12-29 22:02:49.0, decuctFail, 5-No payment allowed: [512]check scan_type error, scan type not fit[one 1, another 3], <CLOB>, 100000000018089]
+12-30 17:39:30.343|DEBUG|druid.sql.Statement:?|http-nio-8767-exec-7|uyFB6Vol|{conn-10003} {executed in 5.227521 millis} UPDATE API_FAIL_RETRY SET STATE = 'running', RETRY_TIMES = 5, EXPIRE_TIME = '2019-01-28 21:46:47.000', LAST_MODIFY_TIME = '2018-12-30 17:39:30.336', ERROR_CODE = 'decuctFail', ERROR_MSG = '5-No payment allowed: [512]check scan_type error, scan type not fit[one 1, another 3]', RETRY_DATA = '{"originData":{"aPM":false,"alipayConfigId":"GZMTR-NPS-ALIPAY","brakeTime":"20181228214647","channelFlag":"10","customerId":"PAYPCID23951802","goodsName":"广州地铁扣费","inTxnTime":"20181220104909","inWaterNo":"20181227104912185711_S96","logicalNo":"0000040014199893","matchType":"10","merId":"GZ001100627","merTradeFlowNo":"100000000018089","orderId":"1546004807197_10000004_cW45i","orderId2":"10000004","outTxnTime":"20181227110638","outWaterNo":"20181227110638321958_S96","payParamCode":"gz_metro_pay_1","payType":"2","payWay":"05","qrAccountNo":"0000040014199893","retry":true,"retryCode":"decuctFail","retryMsg":"5-No payment allowed: [512]check scan_type error, scan type not fit[one 1, another 3]","terminalNo":"OSSOTID1000724","totalFee":200,"tradeTime":"20181220104909","transCur":"CNY","transferFlowNo":"PAY20181228214647431199","wechatConfigId":"GZMTR-NPS-WXPAY"}}' WHERE ID = '7E15B8D3BAE0F278E05311065A0A8328'
+12-30 17:39:30.344|INFO|c.p.w.p.s.nps.NpsPayFailRetryService:?|http-nio-8767-exec-7|uyFB6Vol|失败重试开始,id=7E15B8D3BAE0F278E05311065A0A8328,desc=扣款失败重试
+12-30 17:39:30.675|DEBUG|druid.sql.Statement:?|http-nio-8767-exec-7|uyFB6Vol|{conn-10003} {executed in 1.034167 millis} UPDATE API_FAIL_RETRY SET STATE = 'wait', RETRY_TIMES = 5, EXPIRE_TIME = '2019-01-28 21:46:47.000', LAST_MODIFY_TIME = '2018-12-30 17:39:30.673', ERROR_CODE = 'decuctFail', ERROR_MSG = '3-No payment allowed: [521][102] in qrcode_scan_time ,out of qrcode_gen_time range', RETRY_DATA = '{"originData":{"aPM":false,"alipayConfigId":"GZMTR-NPS-ALIPAY","brakeTime":"20181228214647","channelFlag":"10","customerId":"PAYPCID23951802","goodsName":"广州地铁扣费","inTxnTime":"20181220104909","inWaterNo":"20181227104912185711_S96","logicalNo":"0000040014199893","matchType":"10","merId":"GZ001100627","merTradeFlowNo":"100000000018089","orderId":"1546004807197_10000004_cW45i","orderId2":"10000004","outTxnTime":"20181227110638","outWaterNo":"20181227110638321958_S96","payParamCode":"gz_metro_pay_1","payType":"2","payWay":"05","qrAccountNo":"0000040014199893","retry":true,"retryCode":"decuctFail","retryMsg":"5-No payment allowed: [512]check scan_type error, scan type not fit[one 1, another 3]","terminalNo":"OSSOTID1000724","totalFee":200,"tradeTime":"20181220104909","transCur":"CNY","transferFlowNo":"PAY20181228214647431199","wechatConfigId":"GZMTR-NPS-WXPAY"}}' WHERE ID = '7E15B8D3BAE0F278E05311065A0A8328'
+10.90.6.143 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.100 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.132 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.115 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.141 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.129 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.180 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.103 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.116 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.135 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.101 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.179 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.142 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.134 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.178 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.117 | FAILED | rc=1 >>
+non-zero return code
+10.90.6.181 | FAILED | rc=1 >>
+non-zero return code

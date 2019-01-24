@@ -1,0 +1,12 @@
+jdk_version: 8u171
+port: 6379
+redis_version: 5.0.0
+slave_ip: 192.168.121.129
+master_ip: 192.168.121.128
+mysql_package: mysql-boost-5.7.24
+mysql_version: mysql-5.7.24
+mysqldata_dir: /fs01/mysqldata
+cmake_version: cmake-3.7.1
+source_dir: /fs01/soft/mysql
+install_dir: /fs01/mysql
+

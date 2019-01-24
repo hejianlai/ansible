@@ -1,0 +1,16 @@
+- hosts: gz-qrcode
+  remote_user: tomcat8
+  tasks:
+    - name: Kill java
+      shell: "ps axu|grep tomcat_qrcode|grep -v grep |awk '{print $2}'|xargs kill "
+      ignore_errors: yes
+    - name: Backup sound code file
+      shell: "cp -r /fs01/tomcat_qrcode/webapps/gzqrcode /fs01/backup/gzqrcode_$(date +%Y%m%d%H%M)"
+    - name: Delect sound code file
+      shell: "rm -fr /fs01/tomcat_qrcode/webapps/gzqrcode "
+    - name: Copy the war packge
+      copy:
+        src: /root/ansible_playbooks/gz-qrcode/gzqrcode.war
+        dest: /fs01/tomcat_qrcode/webapps
+    - name: Start Tomcat
+      shell: chdir=/fs01/tomcat_qrcode/bin nohup ./startup.sh &

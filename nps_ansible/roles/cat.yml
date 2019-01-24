@@ -1,0 +1,4 @@
+- hosts: ansible
+  remote_user: root
+  roles:
+  - catservers

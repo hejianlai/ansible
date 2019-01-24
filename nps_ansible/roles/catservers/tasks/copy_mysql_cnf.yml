@@ -1,0 +1,8 @@
+- name: create source directory
+  command: mkdir -p {{source_dir}} 
+- name: copy mysql package to remote server
+  copy: src={{mysql_package}}.tar.gz dest={{source_dir}} owner=root group=root
+- name: copy cmake package to remote server
+  copy: src={{cmake_version}}.tar.gz dest={{source_dir}} owner=root group=root
+- name: copy mysql install script to remote server
+  template: src=mysql_install.sh dest={{source_dir}} owner=root group=root mode=0775

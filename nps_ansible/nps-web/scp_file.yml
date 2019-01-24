@@ -1,0 +1,7 @@
+- hosts: nps-pay
+  remote_user: tomcat8
+  tasks:
+    - name: scp file
+      shell: scp -r /fs01/nps-pay tomcat8@{{ item }}:/fs01
+      with_items:
+       - 10.90.6.92

@@ -1,0 +1,117 @@
+#本配置文件是spring cloud项目启动的引导文件；
+#打包部署时，不跟程序一起打包，因此测试、生产环境需要单独放置到程序包外面；
+#以下配置都是程序中需要用到的配置，配置一次即可。
+#本配置文件为yaml配置，请遵循yaml语法：https://blog.csdn.net/vincent_hbl/article/details/75411243
+#配置文件中出现“**”的配置项，均需要按照具体环境进行配置
+
+spring:
+  profiles:
+    #**部署运行环境，dev:开发，test:测试，produce:生产
+    active: produce
+  application:
+    name: tpp-api
+    
+    
+logback:
+  #非开发环境是否开启控制台日志
+  enableConsoleLogWhenNotInDev: false
+  #**日志文件存放目录，目录后面无需再加"/"。备注如果这项不配置，则不输出日志文件
+  logFileDir: /fs01/log
+
+
+server:
+  #**对外服务端口，端口需要运维集中管理，只要注意端口号不被占用就行
+  port: 8766
+#  undertow:
+#    io-threads: 8
+#    worker-threads: 72
+#    buffer-size: 1024
+#    direct-buffers: true
+  
+  
+eureka:
+  client:
+    serviceUrl:
+      #**eureka注册中心地址  云平台
+      #defaultZone: http://172.20.14.118:8778/eureka/
+      #**eureka注册中心地址  广州地铁多元化
+      defaultZone: http://10.90.6.82:8760/eureka/,http://10.90.6.83:8760/eureka
+
+
+configure:
+  #**配置文件基础路径，遵循spring资源加载语法。
+  #如果是独立于程序包外部的磁盘路径，需要增加前缀“file:"，示例：file:/home/tppConfig
+  #如果是开发环境且配置文件在类路径下，则配置：classpath:
+  baseDir: 'file:../tpp-config'
+  #**数据库配置文件路径
+  #云平台
+#  dbConfigPath: ${configure.baseDir}/db/databaseConfig.yml
+  #广州地铁多元化
+  dbConfigPath: ${configure.baseDir}/db/gzmtr_databaseConfig.yml
+  #tpp系统通用配置文件
+  tppSystemConfigPath: ${configure.baseDir}/prop/tppSystemConfig.yml
+  #nps系统专用的配置文件
+  npsConfigPath: ${configure.baseDir}/prop/nps.yml
+  #redis配置
+  redisConfigPath: ${configure.baseDir}/redis/gzMtrRedis.yml
+      
+
+#是否进行sign验签，默认true，仅用于测试人员对接口进行压测使用，生产环境可以不配置或者设置为true
+#signVerify: true
+signVerify: true
+
+#账户系统访问前缀路径，测试生产环境不需要配置(走微服务形式)，
+#开发环境按需配置(主要是开发环境的注册中心没有账户系统的服务注册，走普通http请求)
+#云平台
+#acc.req.prefixUri: http://172.20.14.124:8790
+#广州地铁多元化
+#acc.req.prefixUri: http://172.20.14.188:8090
+
+tpp:
+  #启用外网访问
+  enablePublicNetHttpAccess: true
+
+flowlimit-test:
+  env:
+    key: value
+  rules:
+    - pattern: /api/.*
+      patternClass:
+
+      key: api-service-S1-104
+      params :
+        apiName : S1-104
+          
+      tps: 10000
+      limiterClass:  
+      
+    - pattern: /api/.*
+      patternClass:
+
+      key: api-service-S1-104-tenpay
+      params :
+        apiName : S1-104-tenpay
+          
+      tps: 10000
+      limiterClass:  
+      
+    - pattern: /api/.*
+      patternClass:
+
+      key: api-service-S1-107
+      params :
+        apiName : S1-107
+          
+      tps: 10000
+      limiterClass:  
+      
+  limitResponse:
+    policyClass:
+    value:
+      resp_code: api140003
+      resp_msg: Service Resource Limited
+#      code: 503
+#      #      msg: Service Resource Limited
+#      #      data:
+#      #        text: multi restful api flowlimit test
+#

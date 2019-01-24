@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<!-- 定义调度线程池 -->
+	<!-- <bean id="taskSchedulerPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+		<property name="poolSize" value="2" />
+		<property name="waitForTasksToCompleteOnShutdown" value="false" />
+		<property name="threadNamePrefix" value="schedule-" />
+	</bean>
+	<task:annotation-driven proxy-target-class="true" executor="taskExecutorPool" scheduler="taskSchedulerPool"/>
+	
+	异常交易处理任务
+	<bean id="tradeHandleTask" class="com.pci.ws.pay.nps.task.TradeHandleTask"/>
+	
+	延时扣费处理任务
+	<bean id="delayHandleTask" class="com.pci.ws.pay.nps.task.DelayHandleTask"/>
+	
+	延时扣费处理任务
+	<bean id="blackHandleTask" class="com.pci.ws.pay.nps.task.BlackHandleTask"/>
+	
+	ref是工作类;method是工作类中要执行的方法;initial-delay是任务第一次被调用前的延时，单位毫秒;
+	     fixed-delay是上一个调用完成后再次调用的延时;cron是表达式，表示在什么时候进行任务调度。
+	
+	<task:scheduled-tasks scheduler="taskSchedulerPool">
+		定时调度，处理更新交易数据
+		<task:scheduled ref="tradeHandleTask" method="handleTask" cron="0 30,50 2 * * ?"/>
+		
+		延时扣费处理任务
+		<task:scheduled ref="delayHandleTask" method="handleTask" cron="0 10,30 10 * * ?"/>
+		
+		黑名单处理任务
+		<task:scheduled ref="blackHandleTask" method="handleTask" cron="0 30,50 3 * * ?"/>
+	</task:scheduled-tasks> -->
+</beans>

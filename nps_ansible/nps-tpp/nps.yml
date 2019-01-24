@@ -1,0 +1,52 @@
+#腾讯中台乘车码配置
+tenpay:
+  #请求腾讯中台的url前置
+  ifaceUrl: https://open-wlx.tenpay.com
+  #ifaceUrl:  http://10.90.6.9:1443
+  #商户号
+  merId: 10000147
+  #城市码
+  cityId: 440100
+  #签名秘钥(PKCS8)
+  privateKey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMubV3HPpLebXbP3g/B24hfoOV2UnldXxRHwdMhU8HJ1G2OnjzNCo8oQtJYKACz2KsKb5VP9HREF97xPM/2N2UzVQ3RcL4asCSCGTdAkrI5sAwyhrGA8p1Hw5FRcSvBRhfDOwKQOsisgjpRQVcyE6JDdKcMF8A5BWm6mp2PTsFEXAgMBAAECgYEAoZNdCYxmgu5gpfi+U42ETsSTAZh3L4kPcvUHOBNv3OTiH2tRULSJlkk7hfXZvdR8ioN8sfIjpua9ekrAT27KCawllYtfyC7AVYEaJfj4froK6iKIIugyK7rOQbFFLECByfKdGanqBGiXIAWKx1ErNALUzyRDOHQd3xLOT8lNEUECQQDxiSliTbrkSpYyUPKF6/aTRegAzYTUfXHEsq1uoM3URosM5u/Z5fuLnAgtCC2Gjp3DYQsuGjG8BB5pLaPgzR67AkEA18y2tgvBjI5H2ZnVS7/27vC1W29ZftIU4EMnQ/LW+PwWY0SOaF2KVikfgkU/t6eKDGQsysoad3Hc243R8loHVQJBAJpKC+2HycLbAmbR3po9yRz6ouEgZ6F1IJ+No8vvXIwlI93yB3UhvDXKTk610p8Jqy2LaCDjCrIXz3VQeka3wNECQGJZXfvhp7gTMBOv1FHNjxCei0i8mqD9xZ3ffQmupuKaoOlk2TIfT2itHTsVrFBa/sNe9DsHmMBPGETHgaNd/HECQDS1KxGXCXE5h8GZKyido50YeWPeVoaWZgHi9x3vT8V7oZjUllI6130uLuoHwi34jQIW6TcY4fDaxEnIkCPNBso=
+  #用户注册敏感信息加密aes的key
+  aesKey: eb2426199ac27953
+
+nps:
+  platformTerminalNo:
+    metroApp: OSSOTID1000703
+    tenpay: OSSOTID1000724
+    alipaySmallProgram: OSSOTID1000723
+  #发码系统地址
+  qrCodeIfaceUrl: http://10.90.6.9:8090/gzqrcode/api
+  #sendNum补登，黑名单一次推送多少条
+  sendNum: 2
+  #NPS微信支付配置ID
+  wechatPayConfigId: GZMTR-NPS-WXPAY
+  #NPS支付宝支付配置ID
+  alipayConfigId: GZMTR-NPS-ALIPAY
+  #NPS微信签约配置ID
+  wechatSignConfigId: GZMTR-NPS-WXPAY-SIGN
+  #广州地铁app后台系统地址
+  #npsAppBackoundUrl: http://mtrapp.projects.bingosoft.net:82
+  npsAppBackoundUrl: http://10.252.3.9:9082
+  #广州地铁app后台接口码
+  npsAppBackgroundIfaceCode: 2018112000000201
+  #tpp云平台访问地址
+  #cloudPlatformAddr: https://api.hcepay.com
+  cloudPlatformAddr: http://10.10.51.186:80
+  #支付宝小程序接入配置
+  alipaySmallProgram: 
+    merId: GZ440100020
+    terminalNo: OSSOTID1000000
+    key: 75332v1vmk3953e5hlnx06oqu6ru062r
+  #NPS交易查询Redis存储，数据存储天数，按订单时间（单位：天）
+  tradeRedisQuerySavedDay: 7
+  #行业数据过期时间设置 类型 天时分秒
+  npsExpireDateSettingType: MINUTE
+  #行业数据有效期 秒
+  npsExpireDate: 300
+  #乘车码有效时间 秒
+  npsQrcodeActiveTime: 3
+  #佳都支付宝分佣账户
+  alipaySysServiceProviderId: 2088421729677917
